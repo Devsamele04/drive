@@ -59,7 +59,8 @@ router.post(
       username: username,
     });
 
-    //username check
+    //username check...
+
     if (!user) {
       return res.status(400).json({
         message: "username or password is incorrect",
@@ -84,9 +85,10 @@ router.post(
       },
       process.env.JWT_SECRET
     );
-   res.cookie('token',token);
-   res.send("logged in");
+    res.cookie("token", token);
+    res.send("logged in");
   }
+  
 );
 
 module.exports = router;

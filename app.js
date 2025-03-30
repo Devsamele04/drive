@@ -6,13 +6,14 @@ dotenv.config();
 const connectToDB = require("./config/db")
 connectToDB();
 const cookieparser = require("cookie-parser");
+const indexRouter = require("./routes/index.routes")
 
 app.set("view engine",'ejs');
 app.use(cookieparser())
 app.use(express.json());
 app.use(express.urlencoded ({extended:true}));
 
-  
+app.use('/',indexRouter);  
 app.use('/user', userRouter);
   
 app.listen(3000,()=>{
